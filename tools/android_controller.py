@@ -65,3 +65,12 @@ class AndroidController:
 
     def home(self):
         self.device.press('home')
+
+    def click_by_path(self, path):
+        element = self.device.xpath(path)
+        if element.exists:
+            print(f'找到路径为{path}的元素')
+            res = element.click()
+            print(f'点击路径为{path}的元素结果: {res}')
+        else:
+            print(f'未找到路径为{path}的元素')

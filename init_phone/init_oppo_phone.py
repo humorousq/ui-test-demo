@@ -29,7 +29,7 @@ def main(device):
     # 打开设置页面
     controller.open_settings()
     # 暂停0.5秒
-    sleep(0.5)
+    sleep(1)
     # 滑动屏幕到底部
     controller.scroll()
     # 暂停0.5秒
@@ -39,7 +39,11 @@ def main(device):
     controller.clickText('开发者选项')
     sleep(1)
     controller.set_developer_option_switch_state('不使用锁屏', True)
-    sleep(0.5)
+    sleep(2)
+    for i in range(6):
+        controller.click_by_path('//*[@content-desc="0"]')
+    sleep(5)
+    # controller.export_xml('./output', 'test1.xml')
     controller.set_developer_option_switch_state('充电时屏幕不休眠', True)
     sleep(0.5)
     controller.set_developer_option_switch_state('系统自动更新', False)
